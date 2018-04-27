@@ -1,21 +1,37 @@
 var inquirer = require("inquirer");
 var Word = require("./Word.js")
+
 var words = ["hello", "world", "fudgeface", "turtle"]
-var randWord = "";
+
+function init() {
+    //set array for words that have already been used
+    usedWords = [];
+    playGame();
+}
 
 
-function startGame() {
-    randWord = words[Math.floor(Math.random() * words.length)];
-    wordArray = Array.from(randWord);
+function playGame() {
+    
 
+}
+
+function getWord() {
+    let rand = Math.floor(Math.random() * words.length);
+    let randWord = words[rand];
+
+}
+
+function makeGuess() {
     inquirer.prompt([
         {
             name: "letter",
             message: "Guess a letter!"
         }
-    ]).then(function(answers) {
- 
+    ]).then(function (answers) {
+
     });
+
 
 }
 
+init();
