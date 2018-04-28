@@ -28,10 +28,31 @@ function makeGuess() {
             message: "Guess a letter!"
         }
     ]).then(function (answers) {
-
+console.log(answers)
     });
-
-
 }
 
-init();
+// init();
+
+function game(word){
+    this.currentGame = new Word(word);
+    this.guess = 10;
+    var self = this
+
+    this.guess = function(){
+
+        inquirer.prompt([{
+            type: "input",
+            name: 'guess',
+            message: 'what letter would you like to guess?'
+        }]).then(function(answers){
+            self.currentGame.testGuess(answers.guess)
+        })
+        
+    };
+
+    console.log(this.currentGame)
+}
+
+var newGame = new game("Secret Lovers")
+newGame.guess();

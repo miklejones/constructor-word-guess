@@ -49,6 +49,7 @@ function Word(word) {
     }
 };
 
+module.exports = Word;
 
 var newWord = new Word("zebra");
 
