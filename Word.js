@@ -21,6 +21,7 @@ function Word(word) {
 
             //push the newLetter objs
             this.letterObjects.push(newLetter);
+           
             this.newLetters.push(newLetter.showLetter());
         }
 
@@ -28,20 +29,23 @@ function Word(word) {
         this.printedWord = this.newLetters.join(" ");
 
 
-        console.log('newLetters looks like this: ' + this.newLetters);
-        console.log('letterObjects looks like this: ' + this.letterObjects);
-        console.log('printedWord looks like this: ' + this.printedWord);
+        // console.log('newLetters looks like this: ' + this.newLetters);
+        console.log(this.printedWord);
+        // console.log('printedWord looks like this: ' + this.printedWord);
         return this.printedWord;
     };
 
     
     // A function that takes a character as an argument and calls the guess function on each letter object
     this.testGuess = function (guess) {
+        var wordArr = '';
         //uses guess and checks it as an arguement in each Letter object using Letter.checkLetter()
-        
-
-      
-
+        this.letterObjects.forEach(function (letter) {
+            letter.checkLetter(guess);
+            wordArr += letter.showLetter() + ' ';
+            
+        })
+        console.log(wordArr);
     }
 };
 
@@ -49,6 +53,11 @@ function Word(word) {
 var newWord = new Word("zebra");
 
 newWord.makeLetters();
+
+newWord.testGuess('a');
+newWord.testGuess('b');
+
+
 
 
 
